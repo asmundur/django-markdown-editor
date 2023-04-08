@@ -1,14 +1,14 @@
 version: v1.0
-name: Dockerize
+name: Dockerize pipeline
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu2004
 blocks:
-  - name: Docker build
+  - name: Dockerize
     task:
       jobs:
-        - name: 'Job #1'
+        - name: Docker build
           commands:
             - 'echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin'
             - 'docker pull $DOCKER_USERNAME/django-markdown-editor:latest || true'
